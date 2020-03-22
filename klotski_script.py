@@ -86,9 +86,6 @@ def solve(pieces_in, zähler, weg):
                     move(pieces_in, i, np.negative(j))
         return
     print(zähler)
-    draw_board(pieces_in)
-    lösungswege = lösungswege.append(weg)
-    print("lösungswege: " + str(len(lösungswege)))
 
 
 solve(pieces, 0, [])
