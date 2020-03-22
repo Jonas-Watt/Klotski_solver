@@ -1,5 +1,6 @@
 import numpy as np
 import copy
+import csv
 
 # creating pieces
 
@@ -28,6 +29,7 @@ pieces = np.array([[[0, 3], [0, 4]],
                    [[2, 0]]])
 '''
 history = np.array([copy.deepcopy(pieces)])
+lösungswege = []
 
 
 def draw_board(piece):
@@ -67,23 +69,26 @@ def move_possible(pieces, piece, richtung):
     return True
 
 
-def solve(pieces_in, zähler):
+def solve(pieces_in, zähler, weg):
     zähler += 1
+    richtungen = {"[0, 1]" : "hoch", "[0, -1]" : "runter", "[1, 0]" : "rechts", "[-1, 0]" : "links"}
     global history
-    if zähler < 200:
-        if not pieces_in[1][0] == [1, 0]:
-            for i in range(10):
-                for j in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                    if move_possible(pieces_in, i, j):
-                        pieces_in[i] = move(pieces_in, i, j)
-                        if not any(np.equal(history, pieces_in).all(1)):
-                            history = np.append(history, [copy.deepcopy(pieces_in)], axis=0)
-                            print(zähler)
-                            solve(pieces_in, zähler)
-                        move(pieces_in, i, np.negative(j))
-            return
-        print(zähler)
-        draw_board(pieces_in)
+    global lösungswege
+    if not pieces_in[1][0] == [1, 0]:
+        for i in range(10):
+            for j in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                if move_possible(pieces_in, i, j):
+                    pieces_in[i] = move(pieces_in, i, j)
+                    if not any(np.equal(history, pieces_in).all(1)):
+                        weg.append('Klotz' + str(i) + richtungen[str(j)])
+                        history = np.append(history, [copy.deepcopy(pieces_in)], axis=0)
+                        solve(pieces_in, zähler, weg)
+                    move(pieces_in, i, np.negative(j))
+        return
+    print(zähler)
+    draw_board(pieces_in)
+    lösungswege = lösungswege.append(weg)
+    print("lösungswege: " + str(len(lösungswege)))
 
 
-solve(pieces, 0)
+solve(pieces, 0, [])
