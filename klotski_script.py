@@ -1,3 +1,4 @@
+# zu Juypter Notebook gewechselt, für mehr Memory
 import numpy as np
 import copy
 import csv
