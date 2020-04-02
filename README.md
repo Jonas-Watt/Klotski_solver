@@ -10,4 +10,4 @@ wogegen bei Klotski unendlich viele Züge möglich sind, jedenfalls so viele, bi
 Deshalb musste ich eine künstliche maximale Suchtiefe einstellen.
 
 Log 2:
-Mit der brute-force Implementation wird der kürzeste Lösungsweg gefunden. Es wird ein Tree erstellt, der alle Möglichkeiten probiert und schon vorhandene Konfugurationen eliminiert. Der kürzeste Lösungsweg ist 116 Züge lang (es gibt zwei Wege, die so lang sind).
+Mit der brute-force Implementation wird der kürzeste Lösungsweg gefunden. Es wird ein Tree erstellt, der alle Möglichkeiten probiert und schon vorhandene Konfugurationen eliminiert. Der kürzeste Lösungsweg ist 116 Züge lang (es gibt zwei spiegelverkehrte Wege).
