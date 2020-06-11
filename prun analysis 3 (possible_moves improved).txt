@@ -1,0 +1,45 @@
+         27693304 function calls in 271.756 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    83896  242.539    0.003  243.391    0.003 <ipython-input-29-270382e8013c>:72(child_duplicate)
+  1038200    8.856    0.000   25.923    0.000 <ipython-input-29-270382e8013c>:33(move_if_possible)
+  3141285    3.861    0.000    7.369    0.000 <ipython-input-29-270382e8013c>:59(expand_piece)
+    25955    2.683    0.000  272.549    0.011 <ipython-input-29-270382e8013c>:22(generate_children)
+  7309544    2.155    0.000    2.155    0.000 {built-in method builtins.sum}
+  1038200    2.153    0.000    4.677    0.000 <ipython-input-29-270382e8013c>:34(<listcomp>)
+  2103085    1.557    0.000    2.139    0.000 <ipython-input-29-270382e8013c>:51(<listcomp>)
+      169    1.492    0.009    1.748    0.010 <ipython-input-5-84d11793891c>:1(get_layer)
+   109851    1.013    0.000    1.245    0.000 <ipython-input-29-270382e8013c>:13(compress)
+  1274097    0.975    0.000    1.643    0.000 <ipython-input-29-270382e8013c>:63(<listcomp>)
+  1038200    0.949    0.000    1.598    0.000 <ipython-input-29-270382e8013c>:36(<listcomp>)
+  6921830    0.898    0.000    0.898    0.000 {method 'append' of 'list' objects}
+   335584    0.844    0.000    0.844    0.000 <ipython-input-29-270382e8013c>:55(<listcomp>)
+   344612    0.272    0.000    0.440    0.000 <ipython-input-29-270382e8013c>:65(<listcomp>)
+   332621    0.263    0.000    0.427    0.000 <ipython-input-29-270382e8013c>:67(<listcomp>)
+   332621    0.247    0.000    0.601    0.000 <ipython-input-29-270382e8013c>:68(<listcomp>)
+   332621    0.244    0.000    0.398    0.000 <ipython-input-29-270382e8013c>:69(<listcomp>)
+   260906    0.208    0.000    0.208    0.000 {built-in method builtins.max}
+  1098510    0.151    0.000    0.151    0.000 {method 'add' of 'set' objects}
+    25955    0.105    0.000    0.525    0.000 <ipython-input-29-270382e8013c>:2(__init__)
+   500700    0.094    0.000    0.094    0.000 {built-in method builtins.len}
+     1481    0.092    0.000    0.092    0.000 socket.py:342(send)
+      168    0.046    0.000  272.595    1.623 <string>:7(<listcomp>)
+    25955    0.024    0.000    0.027    0.000 <ipython-input-29-270382e8013c>:8(add_to_history)
+        1    0.008    0.008  274.469  274.469 <string>:1(<module>)
+     1344    0.007    0.000    0.115    0.000 iostream.py:384(write)
+     1481    0.006    0.000    0.104    0.000 iostream.py:197(schedule)
+      168    0.003    0.000    0.118    0.001 {built-in method builtins.print}
+     1481    0.002    0.000    0.006    0.000 threading.py:1092(is_alive)
+     1344    0.002    0.000    0.002    0.000 iostream.py:309(_is_master_process)
+     1481    0.002    0.000    0.002    0.000 {method 'acquire' of '_thread.lock' objects}
+     1481    0.001    0.000    0.001    0.000 iostream.py:93(_event_pipe)
+     1481    0.001    0.000    0.003    0.000 threading.py:1050(_wait_for_tstate_lock)
+     1344    0.001    0.000    0.015    0.000 iostream.py:322(_schedule_flush)
+     1344    0.001    0.000    0.001    0.000 {built-in method nt.getpid}
+     1481    0.000    0.000    0.000    0.000 threading.py:507(is_set)
+     1481    0.000    0.000    0.000    0.000 {method 'append' of 'collections.deque' objects}
+     1344    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000  274.469  274.469 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
