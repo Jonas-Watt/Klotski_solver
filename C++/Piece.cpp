@@ -1,7 +1,5 @@
 #pragma once
 
-using namespace std;
-
 struct Piece {
 	int height;
 	int width;

@@ -2,18 +2,17 @@
 
 #include<cmath>
 #include<iostream>
-#include<vector>
-#include<algorithm>
 
 #include"Piece.cpp"
 #include"Board.cpp"
 
-class Node : public Board {
-	vector<Node*> children;
-	Node* parent;
-public:
-	Node(Node* p, vector<Piece> pieces) : parent(p), Board(pieces) {}
-	vector<vector<Piece>> make_children(); // and add to queue
+struct Node : public Board {
+	int parent;
+	vector<int> children;
+	static vector<vector<int>> memory;
+	Node(vector<Piece> pieces, int p) : Board(pieces), parent(p) {}
+	vector<vector<Piece>> make_children();
+	bool check_memory(vector<int>& map);
 };
 
 vector<vector<Piece>> Node::make_children() {
@@ -36,11 +35,25 @@ vector<vector<Piece>> Node::make_children() {
 				for(int w=0;w<pieces[i].width;w++)
 					new_map[pieces[i].pos+w+width*h+dir]=pieces[i].type;
 			if(count(new_map.begin(),new_map.end(),0)==empty_space) {
-				child_pieces=pieces;
-				child_pieces[i]=Piece(pieces[i].height,pieces[i].width,pieces[i].pos+dir);
-				out.push_back(child_pieces);
+				if(!check_memory(new_map)) {
+					memory.push_back(new_map);
+					child_pieces=pieces;
+					child_pieces[i]=Piece(pieces[i].height,pieces[i].width,
+					  pieces[i].pos+dir);
+					out.push_back(child_pieces);
+				}
 			}
 		}
 	}
 	return out;
 }
+
+bool Node::check_memory(vector<int>& map) {
+	for(const auto& mem_map : memory) 
+		if(map==mem_map)
+			return true;
+	return false;
+}
+
+vector<vector<int>> Node::memory;
+

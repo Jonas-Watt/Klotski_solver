@@ -8,15 +8,13 @@
 
 using namespace std;
 
-class Board {
-protected:
+struct Board {
 	const int height=5;
 	const int width=4;
 	vector<Piece> pieces;
 	vector<int> map;
 	int empty_space;
 	void make_map();
-public:
 	Board(vector<Piece> p);
 	void print();
 };
@@ -36,9 +34,14 @@ Board::Board(vector<Piece> p) : pieces(p), map(height*width,0) {
 void Board::print() {
 	 for(int h=0;h<height;h++) {
 		for(int w=0;w<width;w++) {
-			if(map[w+width*h]==0) cout << "00 ";
-			else cout << map[w+width*h] << " ";
+			if(map[w+width*h]==0) cout << "  ";
+			else if(map[w+width*h]==11) cout << " +";
+			else if(map[w+width*h]==21) cout << " O";
+			else if(map[w+width*h]==12) cout << " =";
+			else if(map[w+width*h]==22) cout << " #";
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
+
