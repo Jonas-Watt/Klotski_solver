@@ -3,7 +3,7 @@
 #include<vector>
 
 class Piece {
-	const int ul_pos; // position of upper left square
+	const int ul_pos; // position of upper left square when created
 	const int height;
 	const int width;
 public:

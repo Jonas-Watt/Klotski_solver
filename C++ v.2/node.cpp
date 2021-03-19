@@ -4,6 +4,6 @@
 
 class Node : public Board {
 public:
-	int parent;
-	Node(std::vector<Piece> b, int p) : Board(b), parent(p) {};
+	const int parent;
+	Node(std::vector<Piece> b, const int p) : Board(b), parent(p) {};
 };

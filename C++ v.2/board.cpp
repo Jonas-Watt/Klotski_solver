@@ -17,15 +17,15 @@
 class Board {
 	static const int height {5};
 	static const int width {4};
-	static size_t make_hash(std::vector<int>);
-	static std::vector<int> make_map(std::vector<Piece>);
-	static std::set<size_t> memory;
+	static std::vector<int> make_map(std::vector<Piece>&);
+	static const size_t make_hash(std::vector<int>&);
+	static std::set<const size_t> memory;
 public:
 	std::vector<Piece> pieces;
 	std::vector<int> map=std::vector(height*width, 0);
 	Board(std::vector<Piece>);
 	std::vector<std::vector<Piece>> make_children();
-	static void print(std::vector<int>);
+	static void print(std::vector<int>&);
 };
 
 
@@ -36,7 +36,7 @@ Board::Board(std::vector<Piece> p) : pieces(p) {
 	memory.insert(make_hash(map));
 }
 
-std::vector<int> Board::make_map(std::vector<Piece> tmp_pieces) {
+std::vector<int> Board::make_map(std::vector<Piece>& tmp_pieces) {
 	std::vector<int> tmp_map(height*width, 0);
 	for(Piece& piece : tmp_pieces) {
 		for(int pos : piece.pos)
@@ -45,7 +45,7 @@ std::vector<int> Board::make_map(std::vector<Piece> tmp_pieces) {
 	return tmp_map;
 }
 
-size_t Board::make_hash(std::vector<int> map) {
+const size_t Board::make_hash(std::vector<int>& map) {
 	return boost::hash_range(map.begin(), map.end());
 }
 
@@ -74,7 +74,8 @@ std::vector<std::vector<Piece>> Board::make_children() {
 				std::vector<Piece> tmp_pieces=pieces;
 				for(int j=0; j<tmp_pieces[i].pos.size(); j++)
 					tmp_pieces[i].pos[j]+=dir;
-				if(memory.find(make_hash(make_map(tmp_pieces)))==memory.end()) // hash muss nochmal im neuen Board berechnet werden worth??
+				std::vector<int> tmp_map=make_map(tmp_pieces);
+				if(memory.find(make_hash(tmp_map))==memory.end()) // hash muss nochmal im neuen Board berechnet werden worth??
 					out.push_back(tmp_pieces);
 			}
 		}
@@ -82,7 +83,7 @@ std::vector<std::vector<Piece>> Board::make_children() {
 	return out;
 }
 
-void Board::print(std::vector<int> map) {
+void Board::print(std::vector<int>& map) {
 	std::cout << std::endl;
 	for(int h=0; h<height; h++) {
 		for(int w=0; w<width; w++) {
@@ -96,5 +97,5 @@ void Board::print(std::vector<int> map) {
 	}
 }
 
-std::set<size_t> Board::memory;
+std::set<const size_t> Board::memory;
 
