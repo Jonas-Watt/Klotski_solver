@@ -34,7 +34,7 @@ Board::Board(vector<Piece> p) : pieces(p), map(height*width,0) {
 void Board::print() {
 	 for(int h=0;h<height;h++) {
 		for(int w=0;w<width;w++) {
-			if(map[w+width*h]==0) cout << "  ";
+			if(map[w+width*h]==0) cout << " _";
 			else if(map[w+width*h]==11) cout << " +";
 			else if(map[w+width*h]==21) cout << " O";
 			else if(map[w+width*h]==12) cout << " =";

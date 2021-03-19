@@ -11,4 +11,10 @@ Makes a tree, that adds children layer by layer. Leafes are states in which no f
 
 ## C++
 
-Used the tree-implementation again, but it is quite slow, but i can't find which part sucks. Probably way more memory efficient than the python implementation, because I learned, hoe pointer, references and so on work.
+### v.1
+
+Used the tree-implementation again, but it is quite slow (around a minute), but i can't find which part sucks. Probably way more memory efficient than the python implementation (around 13 MB), because I learned, how pointer, references and so on work.
+
+### v.2
+
+Used the boost library to hash the board states and made the generation of children more efficient, got the time under 2 seconds, but had to increase the total memory footprint to around 22 MB.
