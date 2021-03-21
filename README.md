@@ -17,8 +17,4 @@ Used the tree-implementation again, but it is quite slow (around a minute), but 
 
 ### v.2
 
-<<<<<<< Updated upstream
-Used the boost library to hash the board states and made the generation of children more efficient, got the time under 2 seconds, but had to increase the total memory footprint to around 20 MB.
-=======
-Used the boost library to hash the board states and made the generation of children more efficient, got the time under 0.5 seconds, but had to increase the total memory footprint to around 29 MB.
->>>>>>> Stashed changes
+Used the boost library to hash the board states and made the generation of children more efficient, got the time under 0.5 seconds, but had to increase the total memory footprint to around 19 MB.
