@@ -18,7 +18,7 @@ public:
 };
 
 void Tree::find_solution() {
-	int ind {0};
+	size_t ind {0};
 	while(queue.size()!=ind) {
 		for(auto& child_pieces : queue[ind].make_children()) {
 			queue.push_back(Node(child_pieces, ind));

@@ -18,7 +18,7 @@ class Board {
 	static const int height {5};
 	static const int width {4};
 	static std::vector<int> make_map(std::vector<Piece>&);
-	static const size_t make_hash(std::vector<int>&);
+	static size_t make_hash(std::vector<int>&);
 	static std::set<const size_t> memory;
 public:
 	std::vector<Piece> pieces;
@@ -45,7 +45,7 @@ std::vector<int> Board::make_map(std::vector<Piece>& tmp_pieces) {
 	return tmp_map;
 }
 
-const size_t Board::make_hash(std::vector<int>& map) {
+size_t Board::make_hash(std::vector<int>& map) {
 	return boost::hash_range(map.begin(), map.end());
 }
 
@@ -54,7 +54,7 @@ std::vector<std::vector<Piece>> Board::make_children() {
 	for(int i=0; i<height*width; i++)
 		if(!map[i]) empty.insert(i);
 	std::vector<std::vector<Piece>> out;
-	for(int i=0; i<pieces.size(); i++) {
+	for(size_t i=0; i<pieces.size(); i++) {
 		std::set<int> tmp_empty {empty};
 		for(const int& pos : pieces[i].pos)
 			tmp_empty.insert(pos);
@@ -72,7 +72,7 @@ std::vector<std::vector<Piece>> Board::make_children() {
 			}
 			if(con) {
 				std::vector<Piece> tmp_pieces=pieces;
-				for(int j=0; j<tmp_pieces[i].pos.size(); j++)
+				for(size_t j=0; j<tmp_pieces[i].pos.size(); j++)
 					tmp_pieces[i].pos[j]+=dir;
 				std::vector<int> tmp_map=make_map(tmp_pieces);
 				if(memory.find(make_hash(tmp_map))==memory.end()) // hash muss nochmal im neuen Board berechnet werden worth??
