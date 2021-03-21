@@ -10,7 +10,7 @@
 
 int main() {
 	auto start = std::chrono::high_resolution_clock::now();
-	
+	/*
 	std::vector<Piece> pieces={Piece(0,2,2),
 	                           Piece(2,1,2),
 	                           Piece(6,1,2),
@@ -21,7 +21,7 @@ int main() {
 	                           Piece(14,1,2),
 	                           Piece(18,1,2)};
 	Tree tree(Node(pieces, -1), {0,12});
-	/*
+	*/
 	std::vector<Piece> pieces={Piece(0,2,1),
 	                           Piece(1,2,2),
 	                           Piece(3,2,1),
@@ -32,9 +32,8 @@ int main() {
 	                           Piece(14,1,1),
 	                           Piece(16,1,1),
 	                           Piece(19,1,1)};
-	
 	Tree tree(Node(pieces, -1), {1,13});
-	*/
+	
 	tree.find_solution();
 	tree.print_solution();
 	auto stop = std::chrono::high_resolution_clock::now();
