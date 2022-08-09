@@ -20,13 +20,17 @@ class Tree {
         
     }
     
-    func solveBoard() {
+    func solveBoard(breakAfterSolution: Bool) {
         var i = 0
         
         while i != boardQueue.count {
-            if solutionIndex == nil && boardQueue[i].board.piecesOnBoard[solution.0].lowerLeftPos == solution.1 {
-                solutionIndex = i
-                //return
+            if solutionIndex == nil {
+                if boardQueue[i].board.piecesOnBoard[solution.0].lowerLeftPos == solution.1 {
+                    solutionIndex = i
+                    if breakAfterSolution {
+                        return
+                    }
+                }
             }
             for child in boardQueue[i].board.makeChildren() {
                 if !(visitedBorads.contains(child.hashValue)) {

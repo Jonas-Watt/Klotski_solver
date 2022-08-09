@@ -53,55 +53,85 @@ let kernel_T = [[false, true], [true, true], [false, true]]
      #
  */
 /*
-let pieces2 = [Piece(lowerLeftPos: (1, 3), kernel: kernel_2x2),
-               Piece(lowerLeftPos: (2, 0), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (1, 0), kernel: kernel_concave_1),]
 
-let board2 = Board(boardSize: (4, 5), piecesOnBoard: pieces2)
-board2.printBoard()
+let piecesClassic = [Piece(lowerLeftPos: (1, 3), kernel: kernel_2x2),
+                     Piece(lowerLeftPos: (0, 0), kernel: kernel_1x1),
+                     Piece(lowerLeftPos: (3, 0), kernel: kernel_1x1),
+                     Piece(lowerLeftPos: (1, 1), kernel: kernel_1x1),
+                     Piece(lowerLeftPos: (2, 1), kernel: kernel_1x1),
+                     Piece(lowerLeftPos: (0, 1), kernel: kernel_1x2),
+                     Piece(lowerLeftPos: (0, 3), kernel: kernel_1x2),
+                     Piece(lowerLeftPos: (3, 1), kernel: kernel_1x2),
+                     Piece(lowerLeftPos: (3, 3), kernel: kernel_1x2),
+                     Piece(lowerLeftPos: (1, 2), kernel: kernel_2x1),]
 
-let tree2 = Tree(rootBoard: board2, solution: (0, (1, 1)))
-tree2.solveBoard()
-tree2.printSolution()
+let boardClassic = Board(boardSize: (4, 5), piecesOnBoard: piecesClassic)
+
+let treeClassic = Tree(rootBoard: boardClassic, solution: (0, (1, 0)))
+
+
+let piecesPennant = [Piece(lowerLeftPos: (0, 3), kernel: kernel_2x2),
+                     Piece(lowerLeftPos: (0, 2), kernel: kernel_1x1),
+                     Piece(lowerLeftPos: (1, 2), kernel: kernel_1x1),
+                     Piece(lowerLeftPos: (0, 0), kernel: kernel_1x2),
+                     Piece(lowerLeftPos: (1, 0), kernel: kernel_1x2),
+                     Piece(lowerLeftPos: (2, 0), kernel: kernel_2x1),
+                     Piece(lowerLeftPos: (2, 1), kernel: kernel_2x1),
+                     Piece(lowerLeftPos: (2, 3), kernel: kernel_2x1),
+                     Piece(lowerLeftPos: (2, 4), kernel: kernel_2x1),]
+
+let boardPennant = Board(boardSize: (4, 5), piecesOnBoard: piecesPennant)
+
+let treePennant = Tree(rootBoard: boardPennant, solution: (0, (0, 0)))
+
+treeClassic.solveBoard(breakAfterSolution: true)
+treeClassic.printSolution()
+print("done")
  */
 
-let pieces1 = [Piece(lowerLeftPos: (1, 4), kernel: kernel_T),
-               Piece(lowerLeftPos: (1, 3), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (2, 3), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (3, 3), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (1, 1), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (3, 1), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (2, 0), kernel: kernel_1x1),
-               Piece(lowerLeftPos: (2, 1), kernel: kernel_1x2),
-               Piece(lowerLeftPos: (0, 0), kernel: kernel_bridge_1),
-               Piece(lowerLeftPos: (3, 0), kernel: kernel_bridge_2),]
+let piecesClassic = [Piece2(lowerLeftPos: (1, 3), kernel: kernel_2x2),
+                     Piece2(lowerLeftPos: (0, 0), kernel: kernel_1x1),
+                     Piece2(lowerLeftPos: (3, 0), kernel: kernel_1x1),
+                     Piece2(lowerLeftPos: (1, 1), kernel: kernel_1x1),
+                     Piece2(lowerLeftPos: (2, 1), kernel: kernel_1x1),
+                     Piece2(lowerLeftPos: (0, 1), kernel: kernel_1x2),
+                     Piece2(lowerLeftPos: (0, 3), kernel: kernel_1x2),
+                     Piece2(lowerLeftPos: (3, 1), kernel: kernel_1x2),
+                     Piece2(lowerLeftPos: (3, 3), kernel: kernel_1x2),
+                     Piece2(lowerLeftPos: (1, 2), kernel: kernel_2x1),]
 
-let board1 = Board(boardSize: (5, 6), piecesOnBoard: pieces1)
-board1.printBoard()
+let piecesPennant = [Piece2(lowerLeftPos: (0, 3), kernel: kernel_2x2),
+                     Piece2(lowerLeftPos: (0, 2), kernel: kernel_1x1),
+                     Piece2(lowerLeftPos: (1, 2), kernel: kernel_1x1),
+                     Piece2(lowerLeftPos: (0, 0), kernel: kernel_1x2),
+                     Piece2(lowerLeftPos: (1, 0), kernel: kernel_1x2),
+                     Piece2(lowerLeftPos: (2, 0), kernel: kernel_2x1),
+                     Piece2(lowerLeftPos: (2, 1), kernel: kernel_2x1),
+                     Piece2(lowerLeftPos: (2, 3), kernel: kernel_2x1),
+                     Piece2(lowerLeftPos: (2, 4), kernel: kernel_2x1),]
 
-let tree1 = Tree(rootBoard: board1, solution: (0, (1, 0)))
-
-let pieces = [Piece(lowerLeftPos: (1, 3), kernel: kernel_2x2),
-              Piece(lowerLeftPos: (0, 0), kernel: kernel_1x1),
-              Piece(lowerLeftPos: (3, 0), kernel: kernel_1x1),
-              Piece(lowerLeftPos: (1, 1), kernel: kernel_1x1),
-              Piece(lowerLeftPos: (2, 1), kernel: kernel_1x1),
-              Piece(lowerLeftPos: (0, 1), kernel: kernel_1x2),
-              Piece(lowerLeftPos: (0, 3), kernel: kernel_1x2),
-              Piece(lowerLeftPos: (3, 1), kernel: kernel_1x2),
-              Piece(lowerLeftPos: (3, 3), kernel: kernel_1x2),
-              Piece(lowerLeftPos: (1, 2), kernel: kernel_2x1),]
- 
-let board = Board(boardSize: (4, 5), piecesOnBoard: pieces)
-
-let tree = Tree(rootBoard: board, solution: (0, (1, 0)))
+let piecesBig = [Piece2(lowerLeftPos: (1, 4), kernel: kernel_T),
+                 Piece2(lowerLeftPos: (1, 3), kernel: kernel_1x1),
+                 Piece2(lowerLeftPos: (2, 3), kernel: kernel_1x1),
+                 Piece2(lowerLeftPos: (3, 3), kernel: kernel_1x1),
+                 Piece2(lowerLeftPos: (1, 1), kernel: kernel_1x1),
+                 Piece2(lowerLeftPos: (3, 1), kernel: kernel_1x1),
+                 Piece2(lowerLeftPos: (2, 0), kernel: kernel_1x1),
+                 Piece2(lowerLeftPos: (2, 1), kernel: kernel_1x2),
+                 Piece2(lowerLeftPos: (0, 0), kernel: kernel_bridge_1),
+                 Piece2(lowerLeftPos: (3, 0), kernel: kernel_bridge_2),]
 
 
-tree.solveBoard()
-tree.printSolution()
-print("done")
+var rootBig = Node2(boardSize: (5, 6), piecesOnBoard: piecesBig, parentIndex: -1, selfIndex: 0)
 
-// MORE HUMAN PLAYSTYLE: FIRST TRY LAST PIECE MOVED AGAIN AND IN THE SAME DIRECTION
+let treeBig = Tree2(rootBoard: rootBig, solution: (0, (1, 0)))
 
-// IMMOVABLE BLOCKS!!!!!!!!
+var root = Node2(boardSize: (4, 5), piecesOnBoard: piecesClassic, parentIndex: -1, selfIndex: 0)
 
+let tree = Tree2(rootBoard: root, solution: (0, (1, 0)))
+
+//tree.solveBoard(breakAfterSolution: true)
+//tree.printSolution()
+
+treeBig.solveBoard(breakAfterSolution: true)
+treeBig.printSolution()
